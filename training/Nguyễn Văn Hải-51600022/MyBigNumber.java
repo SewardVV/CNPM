@@ -1,109 +1,94 @@
-package exercise.mybignumber;
-
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+package mybignumber;
 
 /**
- * Author:  Nguyen Van Hai.
- * DesCription.
- * Class MyBigNumber là lớp để Cộng 2 số lớn bằng 2 chuỗi.
- * Hàm sum trong Class MyBigNumber là hàm để thực hiện phép cộng 2 chuỗi số
+ * Author: Nguyen van Hai
+ * Description: 
+ * This class which to be additional two string number.
  */
 
-public class MyBigNumber {
+public class MyBignumber{
 
-    private IReceiver receivers;
+    //private IReceiver receiver;
 
-    public MyBigNumber(final IReceiver receivers) {
-        this.receivers = receivers;
-    }
+    //public MyBigNumber(final IReceiver receiver){
+       // this.receiver = receiver;
+    //}
 
     /**
-     * Để thực hiện phép cộng, ta cần 2 chuỗi làm tham số cho hàm sum trong đó:
-     * 2 chuỗi này đều chỉ chứa các kí số từ '0' đến '9'.
-     * <br/>
-     *
-     * @param s1 chuỗi số thứ nhất.
-     * @param s2 chuỗi số thứ hai.
-     * @return chuỗi có giá trị là tổng của hai số s1 và s2.
+     * @param str1 - the first string
+     * @param str2 - the second string
      */
-    public String sum(final String s1, final String s2) {
-        // Buoc 1: lay do dai 2 chuoi
-        // Phan khai bao
+    
+    public String sum(final String str1, final String str2){
+        //Declare
 
-        String result = "";
-        String msg = "";// Chuoi msg se lam tham so cho ham send cua interface IReceiver
-        int length1 = s1.length();// do dai chuoi thu 1
-        int length2 = s2.length();// do dai chuoi thu 2
-        final int max = (length1 > length2) ? length1 : length2;// lay do dau lon nhat giua a va b
-        int remember = 0;// Khởi tạo số nhớ = 0 để khi cộng sẽ có vài trường hợp lớn hơn 9
-        int local1 = 0;// Vị trí chuỗi s1
-        int local2 = 0;// Vị trí chuỗi s2
-        char c1;// kí tự c1 dùng để lấy kí tự cuối cùng của chuỗi s1
-        char c2;// kí tự c2 dùng để lấy kí tự cuối cùng của chuỗi s2
-        int tong = 0;// Khởi tạo biến tổng = 0 để cộng 2 kí tự cuối cùng lại với nhau
+        String result = ""; // to store result - sum of two string number
+        String step = ""; //as the parameter for function send of interface
+        String msg = ""; // get message
+        int len1 = str1.length(); // length of string str1
+        int len2 = str2.length(); // length of string str2
+        int lenMax = Math.max(len1, len2); // get string which have maximum length
+        int mem = 0; // to store remember number
+        int local1 = 0; // store the local of string str1
+        int local2 = 0; // store the local of string str2
+        char c1; // character c1 that to get the end character of str1
+        char c2; // character c2 that to get the end character of str2
+        int total = 0; //to get sum of two the end character of two string number together
 
-        // Kiểm tra từng kí tự của 2 chuỗi s1 và s2 có chữ không 
-        for (int i = 0; i < length1 || i < length2; i++) {
+        // check each character of two string that it is a word or not
+        for(int i = 0; i < len1; i++){
+            //If str1 has character or word, then this function will has NumberFormatException
+            if(str1.charAt(i)){
+                throw new NumberFormatException("Local: " + (i + 1) + " in string " + str1 + " not a number.");
+            }  
+        }
 
-            if (Character.isLetter(s1.charAt(i))) {
-                // Nếu chuỗi s1 có chữ hoặc kí tự thì sẽ có NumberFormatException
-                throw new NumberFormatException("Vị trí " + (i + 1) + " trong chuỗi " + s1
-                        + " không phải là số");
+        for(int i = 0; i < len2; i++){
+            //if str2 has character or word, then this function will has NumberFormatException
+            if(str2.charAt(i)){
+                throw new NumberFormatException("Local: " + (i + 1) + " in string " + str2 + " not a number.");
             }
         }
 
-        for (int i = 0; i < length2; i++) {
-
-            if (Character.isLetter(s2.charAt(i))) {
-                // Nếu chuỗi s2 có chữ hoặc kí tự thì sẽ có NumberFormatException
-                throw new NumberFormatException("Vị trí " + (i + 1) + " trong chuỗi " + s2
-                        + " không phải là số");
-            }
+        // check the string have a negative number or not
+        if(str1.charAt(0) == "-" || str2.charAt(0) == "-"){
+            throw new NumberFormatException("Not yet support the negavtive number!");
         }
 
-        // Nếu hàm matcher.find() là đúng tức là trong chuỗi s1 có kí tự đặc biệt
-        if (matcher1.find()) {
-            throw new NumberFormatException("Vị trí " + (matcher1.start() + 1) + " trong chuỗi " + s1
-                    + " không phải là số");
+        //Loop
+        for(int i = 0; i <lenMax; i++){
+             local1 = len1 - i - 1; // get right local of string str1
+             local2 = len2 - i - 1; // get right local of string str2
+
+             c1 = (local1 >= 0) ? str1.charAt(local1) : '0';
+             c2 = (local2 >= 0) ? str2.charAt(local2) : '0';
+
+             num1 = c1 - '0'; // the number at local1
+             num2 = c2 - '0'; // the number at local2
+
+             total = num1 + num2 + mem; // total of two number at local1 of string str1 and local2 of string str2 + remember number
+             temp = num1 + num2;
+
+             //get the unit of total to front of the result
+             result = (total % 10) + result;
+             mem = total / 10; //remember number
+
+             if(i == 0){
+                 msg = "Step: " + i + " : " + num1 + " + " + num2 + " = " + temp + " , " + " Remember: " + mem + " , " + " Result: " + result + "\n";
+             }else{
+                 msg = "Step: " + i + " : " + num1 + " + " + num2 + " + " + mem + " = " + total + " , " + " Remember: " + mem + " , " + " Result: " + result + "\n";
+             }
+             step = step + msg;
         }
 
-        if (matcher2.find()) {
-            throw new NumberFormatException("Vị trí " + (matcher2.start() + 1) + " trong chuỗi " + s2
-                    + " không phải là số");
+        //end loop
+        //if mem variable has a value, add more mem in result
+        if(mem > 0){
+            result = result + mem;
         }
-        
-        // Kiểm tra số âm
-        if (s1.charAt(0) == '-') {
-            throw new NumberFormatException("Chưa hỗ trợ số âm s1: " + s1);
-        } 
-        
-        if (s2.charAt(0) == '-') {
-            throw new NumberFormatException("Chưa hỗ trợ số âm s2: " + s2);
-        }
+        step = "\n" + str1 + " + " + str2 + " = " + result + "Process implementtation: \n\n" + step;
+        this.receiver.send(step);
 
-        // Lặp từ 0 đến max lần
-        for (int i = 0; i < max; i++) {
-            local1 = length1 - i - 1;// cập nhật lại vị trí chuỗi s1
-            local2 = length2 - i - 1;// cập nhật lại vị trí chuỗi s2
-
-            // Xét vị trí của 2 chuỗi xem có >= 0 hay không
-            c1 = (local1 >= 0) ? s1.charAt(length1 - i - 1) : '0';
-            c2 = (local2 >= 0) ? s2.charAt(length2 - i - 1) : '0';
-
-            tong = (c1 - '0') + (c2 - '0') + remember;// chuyển kí tự thành số xong cộng cho số nhớ
-            result = (tong % 10) + result;// Lấy kết quả tổng ở trên chia lấy dư cho 10 và ghép vào chuỗi kết quả
-            remember = tong / 10;// Cập nhật lại số nhớ
-
-            msg = "Step " + (i + 1) + ": " + c1 + " + " + c2 + " = "
-                    + (tong - remember) + " + " + remember + " = " + tong + " . Write " + (tong % 10) + " remember " + remember;
-            this.receivers.send(msg);
-        }
-
-        if (remember > 0) {
-            result = remember + result;// Nếu số nhớ còn dư thì ghép vào chuỗi kết quả
-        }
-
-        return result;// Trả về kết quả thu được
+        return result;
     }
 }
