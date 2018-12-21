@@ -20,7 +20,7 @@ Hướng dẫn sử dụng ứng dụng cộng hai số
 2. Quy trình cài đặt phần mềm cho khách hàng
  - B1: copy file sum.rar vào bất kì ổ đĩa nào trên máy khách hàng mà khách hàng mong muốn ở đây mình mặc định là cài ở ổ đĩa D
  - B2: Giải nén phần mềm.
- - B3: Nếu là cài ở đĩa D(và không nằm trong folder nào khác) thì hãy thêm đường dẫn vào D:\sum vào biến môi trường path
+ - B3: Nếu là cài ở đĩa D(và không nằm trong folder nào khác) thì hãy thêm đường dẫn D:\sum vào biến môi trường path
  - B4: Mở cmd và gõ dòng lệnh sum 2323(đây là số bất kỳ bạn muốn gõ) 23(đây cũng là số bất kỳ bạn muốn)
  - B5: Bắt đầu thử nghiệm phần mềm cộng 2 số thôi nào!
  ***
@@ -47,10 +47,10 @@ Hướng dẫn sử dụng ứng dụng cộng hai số
 Hướng dẫn chạy file MyBigNumberTest.java để xem testcase
 --------------------------------------------------------
 
-1. Tải file MyBigNumber.zip theo đường dẫn: https://drive.google.com/open?id=10c9v49L2hDWN3kPb5C1F8jw9ECI9vJvp
+1. Tải file MyBigNumber.rar theo đường dẫn: https://drive.google.com/open?id=10c9v49L2hDWN3kPb5C1F8jw9ECI9vJvp
 2. Mở eclipse lên sau đó làm các theo các bước sau:
  - B1: Giải nén file MyBigNumber.rar
- - B2: Nhấn File -> Open Projects from file System ... 
+ - B2: Trong giap diện của eclipse tìm trên thanh công cụ phía trên góc bên trái và Nhấn File -> Open Projects from file System ... 
  - B3: Hộp thoại sẽ mở và nhấn vào ô Directory... và chọn file MyBigNumber sau khi đã giải nén.
  - B4: Projects sẽ được build và hiển thị ra và trong thư mục src/test/java sẽ có gói myjava.mybignumber chứa file MyBigNumberTest.java.
  - B5: Nhấn chuột phải và file MyBigNumberTest.java chọn Run as -> JUnit Test.
