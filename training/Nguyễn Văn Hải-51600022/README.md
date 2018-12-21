@@ -16,7 +16,7 @@ Giới thiệu về phần mềm
 Hướng dẫn sử dụng ứng dụng cộng hai số
 --------------------------------------
 
-1. Tải file sum.rar về máy theo đường dẫn: https://drive.google.com/open?id=10B0Lv26dVCKozgAKGqFkDrx1YkvrN9fR
+1. Tải file sum.rar về máy theo đường dẫn: https://drive.google.com/open?id=1uD7KYiCDp90uWgWvGbb5zheAYjSBNy4y
 2. Quy trình cài đặt phần mềm cho khách hàng
  - B1: copy file sum.rar vào bất kì ổ đĩa nào trên máy khách hàng mà khách hàng mong muốn ở đây mình mặc định là cài ở ổ đĩa D
  - B2: Giải nén phần mềm.
@@ -47,7 +47,7 @@ Hướng dẫn sử dụng ứng dụng cộng hai số
 Hướng dẫn chạy file MyBigNumberTest.java để xem testcase
 --------------------------------------------------------
 
-1. Tải file MyBigNumber.rar theo đường dẫn: https://drive.google.com/open?id=16hp1kzra_MKipxNjvigOJYdiC1sT15gk
+1. Tải file MyBigNumber.zip theo đường dẫn: https://drive.google.com/open?id=10c9v49L2hDWN3kPb5C1F8jw9ECI9vJvp
 2. Mở eclipse lên sau đó làm các theo các bước sau:
  - B1: Giải nén file MyBigNumber.rar
  - B2: Nhấn File -> Open Projects from file System ... 

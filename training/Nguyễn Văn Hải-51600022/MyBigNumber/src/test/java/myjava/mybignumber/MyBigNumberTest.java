@@ -1,19 +1,16 @@
 package myjava.mybignumber;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.ArrayList;
-
 import org.junit.jupiter.api.Test;
 
-    /**
-     * Author: Nguyễn Văn Hải
-	 *Descriptions:
-	 *
-	 * MyBigNumberTest là class dùng để test phần mềm công 2 số
-	 * Để xem nó có đúng theo cấc yêu cầu của khách hàng hay không
-	 * Qua đó ta sẽ biết code của chúng ta sai chỗ nào và thiếu sót chỗ nào để khắc phục nó
-     * */
+/**
+ * Author: Nguyễn Văn Hải
+ *Descriptions:
+ * MyBigNumberTest is a class used to test two number sequences
+ * that we see if it meets the requirements of the customer or not
+ *By that we will know where our code is wrong and where to overcome it to overcome it
+ */
 
 public class MyBigNumberTest implements IReceiver {
 

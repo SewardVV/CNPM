@@ -1,11 +1,14 @@
 package myjava.mybignumber;
 
-    /**
-     * Author: Nguyễn Văn Hải
-     * Description: 
-     * Đây là class dùng để cộng 2 chuỗi số
-     * Hàm sum là hàm dùng để thực hiện phép cộng 2 chuỗi số
-     */
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+/**
+ * Author: Nguyễn Văn Hải
+ * Description: 
+ * This class to plus two number sequences
+ * Sum function that is perform add two number sequences
+ */
 
 public class MyBigNumber {
 
@@ -15,37 +18,35 @@ public class MyBigNumber {
     }
 
     /**
-     * Để thực hiện phép cộng 2 chuỗi số, ta phải truyền vào 2 tham số cho hàm sum
-     * Và 2 chuỗi số này chỉ chứa các kí tự số [0-9]
-     * 
      * @param str1 chuỗi số 1
      * @param str2 chuỗi số 2
      */
 
     public String sum(final String str1, final String str2) {
-	    //Khai báo biến
+	    //declare variable
 	
-	    String results = ""; //Biến dùng để lưu kết quả cuối cùng của 2 chuỗi số
-	    String step = ""; //biến dùng để làm tham số cho hàm send trong của interface
-	    String msg = ""; //biến dùng để chứa đoạn text hướng dẫn các bước cộng
-	    int len1 = str1.length(); //biến chứa độ dài chuỗi str1
-	    int len2 = str2.length(); //biến chứa độ dài chuỗi srt2
-	    final int maxLen = (len1 > len2) ? len1 : len2; //lấy độ dài lớn nhất của 1 trong 2 chuỗi số str1 và str2
-	    int index1; //xác định vị trí của kí tự đang xét của chuỗi str1
-	    int index2; //xác định vị trí của kí tự đang xét của chuỗi str2
-	    char c1; //kí tự tại vị trí đang xét index1 của chuỗi str1
-	    char c2; //kí tự tại vị trí đang xét index2 của chuỗi str2
-	    int temp1; //kí số của c1
-	    int temp2; //kí số của c2
-	    int total; //tổng tạm
-	    int totalNoMem; //tổng tạm không có nhớ
-	    int remem = 0; //biến nhớ
-	    int tempRemem = 0; //biến nhớ tạm
-	    final String pattern = "\\d+"; //chuỗi số đại diện cho kí tự số [0-9]
-	    final boolean flag1; //biến để lưu trữ kết quả xét chuỗi str1
-	    final boolean flag2; //biến để lưu trữ kết quả xét chuỗi str2
+	    String results = ""; //The variable is used to save the final result of two sequences
+	    String step = ""; //The variable is used as the parameter for the send function in the interface
+	    String msg = ""; //The variable used to save the text of the plus steps
+	    int len1 = str1.length(); //The variable contains the string length str1
+	    int len2 = str2.length(); //The variable contains the string length str2
+	    final int maxLen = (len1 > len2) ? len1 : len2; //Take the maximum length of one of two string str1 and str2
+	    int index1; //Determines the position of the current character of string str1
+	    int index2; //Determines the position of the current character of string str2
+	    char c1; //The character at position 1 is considered index1 of string str1
+	    char c2; //The character at the index2 position of string str2
+	    int temp1; //digit of c1
+	    int temp2; //digit of c2
+	    int total; //temp total
+	    int totalNoMem; //temp total which has not remember
+	    int remem = 0; //remember variable
+	    int tempRemem = 0; //temp remember variable
+	    final Pattern pattern = Pattern.compile("\\D"); //Numerical sequences represent numeric characters [0-9]
+	    final Matcher flag1 = pattern.matcher(str1); 
+	    final Matcher flag2 = pattern.matcher(str2); 
+	    int positionError; 
 	    
-	    //Kiểm tra số có phải là số âm hay không
+	    //Check whether the number is negative
 	    if(str1.charAt(0) == '-' && str2.charAt(0) != '-') {
 		    this.ireceiver.send("NumberFormatException(\"Please do not include a negative number in the str1 sequence : " + str1);
 		    throw new NumberFormatException("Please do not include a negative number in the str1 sequence : " + str1);
@@ -59,36 +60,33 @@ public class MyBigNumber {
 		    throw new NumberFormatException("Please do not include a negative number in the str1 sequence: " + str1 + " and the str2 sequence : " + str2);
 	    }
 	    
-	    //Kiểm tra kí tự có phải là kí tự đặc biệt hay chữ hay không
-	    flag1 = str1.matches(pattern);
-	    flag2 = str2.matches(pattern);
-	    if(!flag1 && flag2) {
-	    	this.ireceiver.send("NumberFormatException(\"Please do not include any special characters or characters in string : " + str1);
-            throw new NumberFormatException("Please do not include any special characters or characters in string str1 : " + str1);
+	    //Check whether characters are special characters or characters
+	    if(flag1.find()) {
+	    	positionError = flag1.start() + 1;
+	    	this.ireceiver.send("NumberFormatException(\"Please do not include any special characters or characters in string : " + str1 + " at position " + positionError);
+            throw new NumberFormatException("Please do not include any special characters or characters in string : " + str1 + " at position " + positionError);
 	    }
-	    if(!flag2 && flag1) {
-	    	this.ireceiver.send("NumberFormatException(\"Please do not include any special characters or characters in string : " + str2);
-            throw new NumberFormatException("Please do not include any special characters or characters in string str2 : " + str2);
+	    if(flag2.find()) {
+	    	positionError = flag2.start() + 1;
+	    	this.ireceiver.send("NumberFormatException(\"Please do not include any special characters or characters in string : " + str2 + " at position " + positionError);
+            throw new NumberFormatException("Please do not include any special characters or characters in string : " + str2 + " at position " + positionError);
 	    }
-	    if(!flag2 && !flag1) {
-	    	this.ireceiver.send("NumberFormatException(\"Please do not include any special characters or characters in string : " + str2 + " and the string : " + str1);
-            throw new NumberFormatException("Please do not include any special characters or characters in string : " + str2 + " and the string : " + str1);
-	    }
-	    //Chạy vòng lập để cộng từng số trong 2 chuỗi số
+	    
+	    //Run the loop to add each number in the two sequences
 	    for(int i = 0; i < maxLen; i++) {
-		    index1 = len1 - i - 1; //lấy ra vị trí index1 phía bên phải của chuỗi str1
-		    index2 = len2 - i - 1; //lấy ra vị trí index2 phía bên phải của chuỗi str2
+		    index1 = len1 - i - 1; //Get index1 position to the right of string str1
+		    index2 = len2 - i - 1; //Get index2 position to the right of string str2
 		    c1 = (index1 >= 0) ? str1.charAt(index1) : '0';
 		    c2 = (index2 >= 0) ? str2.charAt(index2) : '0';
-		    temp1 = c1 - '0'; //Số tại vị trí index1
-		    temp2 = c2 - '0'; //Số tại vị trí index2
+		    temp1 = c1 - '0'; //Number at index1
+		    temp2 = c2 - '0'; //Number at index2
 		    tempRemem = remem;
-		    total = temp1 + temp2 + remem; //Tổng tạm của 2 số tại vị trí index1 + số tại vị trí index2 + số nhớ
+		    total = temp1 + temp2 + remem; //Temp total of two numbers at index1 + number at index2 + remember number
 		    totalNoMem = temp1 + temp2;
 		
-		    //Lấy số ở hàng đơn vị của total ghép vào phía trước kết quả
+		    //Get the number in the unit row of the multiply matched to the front of the result
 		    results = (total % 10) + results;
-		    remem = total / 10; //số nhớ
+		    remem = total / 10; //remember
 		
 		    if(i == 0) {
 			    msg = "Step " + (i+1) + " : " + temp1 + " + " + temp2 + " = " + totalNoMem
@@ -105,14 +103,14 @@ public class MyBigNumber {
 		    step = step + msg;
 	    }
 	
-	    //Kết thúc vòng lặp
-	    //Nếu biến nhớ remember có giá trị thì ghép thêm remem vào phía trước kết quả
+	    //End loop
+	    //if remember variable is not empty, add more it into before  result
 	    if(remem > 0) {
 	    	String tempSre = results;
 		    results = remem + results;
 		    step = step + "Take " + remem + " forward " + tempSre + " , " + " Result: " + results + "\n";
 	    }
-	    step = "\n" + str1 + " + " + str2 + " = " + results + "\n" + " Process implementation: \n" + step;
+	    step = "\n" + "We have " + str1 + " + " + str2 + " = " + results + "\n" + " Process implementation: \n" + step;
 	    this.ireceiver.send(step);
 	
 	    return results;

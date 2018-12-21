@@ -1,7 +1,12 @@
 package myjava.mybignumber;
 
-import java.awt.EventQueue;
+    /**
+     * 
+     * Author: Nguyen Van Hai
+     * 
+     */
 
+import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -17,6 +22,9 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
@@ -182,13 +190,14 @@ public class MyBigNumberApplication implements IReceiver{
 	}
 	
 	private void  getComments2ActionPerformed(java.awt.event.ActionEvent evt) {
-		final String pattern = "\\d+"; // Chuỗi đại diện cho kí tự số từ [0-9]
-        final boolean flag1;// biến để lưu dữ kết quả xét chuỗi s1 
-        final boolean flag2;// biến để lưu dữ kết quả xét chuỗi s2
         String s1 = num1.getText();
         String s2 = num2.getText();
+        final Pattern pattern = Pattern.compile("\\D"); //Numerical sequences represent numeric characters [0-9]
+	    final Matcher flag1 = pattern.matcher(s1); 
+	    final Matcher flag2 = pattern.matcher(s2); 
+	    int positionError;
         
-      //Kiểm tra số có phải là số âm hay không
+        //Check whether the number is negative
 	    if(s1.charAt(0) == '-' && s2.charAt(0) != '-') {
 	    	JOptionPane.showMessageDialog(textArea,"Please do not include a negative number in the string : " + s1);
 	    }
@@ -199,16 +208,17 @@ public class MyBigNumberApplication implements IReceiver{
 	    	JOptionPane.showMessageDialog(textArea,"Please do not include a negative number in the  string: " + s1 + " and the string : " + s2);
 	    }
 	    
-        // Kiểm tra kí tự đặc biệt
-        flag1 = s1.matches(pattern);
-        flag2 = s2.matches(pattern);
-        if (!flag1) {
-            JOptionPane.showMessageDialog(textArea,"Please do not include any special characters or characters in string: " + s1);
-        }
+        //Check for special characters
+	  //Check whether characters are special characters or characters
+	    if(flag1.find()) {
+	    	positionError = flag1.start() + 1;
+	    	JOptionPane.showMessageDialog(textArea, "Please do not include any special characters or characters in string : " + s1 + " at position " + positionError);
+	    }
+	    if(flag2.find()) {
+	    	positionError = flag2.start() + 1;
+	    	JOptionPane.showMessageDialog(textArea, "Please do not include any special characters or characters in string : " + s2 + " at position " + positionError);
+	    }
         
-        if (!flag2) {
-            JOptionPane.showMessageDialog(textArea,"Please do not include any special characters or characters in string: " + s2);
-        }
         MyBigNumber mybignumber = new MyBigNumber(this);
         String sum = mybignumber.sum(s1,s2);
         result.setText(sum);
@@ -218,5 +228,6 @@ public class MyBigNumberApplication implements IReceiver{
 	public void send(String msg) {
 		// TODO Auto-generated method stub
 		textArea.setText(msg);
+		System.out.println(msg);
 	}
 }
