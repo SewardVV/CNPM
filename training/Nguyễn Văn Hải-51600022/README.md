@@ -47,7 +47,7 @@ Hướng dẫn sử dụng ứng dụng cộng hai số
 Hướng dẫn chạy file MyBigNumberTest.java để xem testcase
 --------------------------------------------------------
 
-1. Tải file MyBigNumber.rar theo đường dẫn: https://drive.google.com/drive/u/0/folders/1RGm5U0LDV_W4ryu81rtqqvXWX1ZAwZuZ
+1. Tải file MyBigNumber.rar theo đường dẫn: https://drive.google.com/open?id=1AD0MiEDNawk6qLVkPe7XEPN8CXV7hJQC
 2. Mở eclipse lên sau đó làm các theo các bước sau:
  - B1: Giải nén file MyBigNumber.rar
  - B2: Nhấn File -> Open Projects from file System ... 
