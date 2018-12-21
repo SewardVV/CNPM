@@ -50,7 +50,7 @@ Hướng dẫn chạy file MyBigNumberTest.java để xem testcase
 1. Tải file MyBigNumber.rar theo đường dẫn: https://drive.google.com/open?id=1AD0MiEDNawk6qLVkPe7XEPN8CXV7hJQC
 2. Mở eclipse lên sau đó làm các theo các bước sau:
  - B1: Giải nén file MyBigNumber.rar
- - B2: Nhấn File -> Open Projects from file System ... 
+ - B2: Trong giap diện của eclipse tìm trên thanh công cụ phía trên góc bên trái và Nhấn File -> Open Projects from file System ... 
  - B3: Hộp thoại sẽ mở và nhấn vào ô Directory... và chọn file MyBigNumber sau khi đã giải nén.
  - B4: Projects sẽ được build và hiển thị ra và trong thư mục src/test/java sẽ có gói myjava.mybignumber chứa file MyBigNumberTest.java.
  - B5: Nhấn chuột phải và file MyBigNumberTest.java chọn Run as -> JUnit Test.
