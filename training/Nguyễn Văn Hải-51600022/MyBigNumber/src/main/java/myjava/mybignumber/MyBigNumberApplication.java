@@ -27,7 +27,8 @@ public class MyBigNumberApplication implements IReceiver{
 	private JTextField num2;
 	private JTextField result;
 	private JTextArea textArea;
-	private String temp;
+	private static String strs1 = "";
+	private static String strs2 = "";
 
 	/**
 	 * Launch the application.
@@ -43,6 +44,19 @@ public class MyBigNumberApplication implements IReceiver{
 				}
 			}
 		});
+		
+		//get two number strings from users
+		try {
+			if(args.length > 0) {
+				strs1 = args[0];
+				strs2 = args[1];
+			}else {
+				strs1 = "0";
+				strs2 = "0";
+			}
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 	/**
@@ -120,6 +134,7 @@ public class MyBigNumberApplication implements IReceiver{
 		num1 = new JTextField();
 		panel1.add(num1);
 		num1.setColumns(10);
+		num1.setText(strs1);
 		
 		JLabel lblTheSecondNumber = new JLabel("The Second Number");
 		lblTheSecondNumber.setBackground(new Color(240, 240, 240));
@@ -128,6 +143,7 @@ public class MyBigNumberApplication implements IReceiver{
 		num2 = new JTextField();
 		panel1.add(num2);
 		num2.setColumns(10);
+		num2.setText(strs2);
 		
 		JLabel lblNewLabel_1 = new JLabel("Result                      ");
 		panel1.add(lblNewLabel_1);

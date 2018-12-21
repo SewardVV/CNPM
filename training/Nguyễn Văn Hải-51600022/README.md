@@ -16,7 +16,7 @@ Giới thiệu về phần mềm
 Hướng dẫn sử dụng ứng dụng cộng hai số
 --------------------------------------
 
-1. Tải file sum.rar về máy theo đường dẫn: https://drive.google.com/open?id=1uLtcn8JVprQNQStgu9_9vZ28ymeOD6UC
+1. Tải file sum.rar về máy theo đường dẫn: https://drive.google.com/open?id=1-VYuy4LnlXocdvBSw9VeRCtVchzmMMwg
 2. Quy trình cài đặt phần mềm cho khách hàng
  - B1: copy file sum.rar vào bất kì ổ đĩa nào trên máy khách hàng mà khách hàng mong muốn ở đây mình mặc định là cài ở ổ đĩa D
  - B2: Giải nén phần mềm.
