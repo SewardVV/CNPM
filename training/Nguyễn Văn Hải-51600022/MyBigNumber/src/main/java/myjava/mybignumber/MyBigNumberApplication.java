@@ -187,15 +187,27 @@ public class MyBigNumberApplication implements IReceiver{
         final boolean flag2;// biến để lưu dữ kết quả xét chuỗi s2
         String s1 = num1.getText();
         String s2 = num2.getText();
+        
+      //Kiểm tra số có phải là số âm hay không
+	    if(s1.charAt(0) == '-' && s2.charAt(0) != '-') {
+	    	JOptionPane.showMessageDialog(textArea,"Please do not include a negative number in the string : " + s1);
+	    }
+	    if(s1.charAt(0) != '-' && s2.charAt(0) == '-') {
+	    	JOptionPane.showMessageDialog(textArea,"Please do not include a negative number in the string : " + s2);
+	    }
+	    if(s1.charAt(0) == '-' && s2.charAt(0) == '-') {
+	    	JOptionPane.showMessageDialog(textArea,"Please do not include a negative number in the  string: " + s1 + " and the string : " + s2);
+	    }
+	    
         // Kiểm tra kí tự đặc biệt
         flag1 = s1.matches(pattern);
         flag2 = s2.matches(pattern);
         if (!flag1) {
-            JOptionPane.showMessageDialog(textArea,"Trong chuỗi số " + s1 + " có chưa kí tự đặc biệt");
+            JOptionPane.showMessageDialog(textArea,"Please do not include any special characters or characters in string: " + s1);
         }
         
         if (!flag2) {
-            JOptionPane.showMessageDialog(textArea,"Trong chuỗi số " + s2 + " có chưa kí tự đặc biệt");
+            JOptionPane.showMessageDialog(textArea,"Please do not include any special characters or characters in string: " + s2);
         }
         MyBigNumber mybignumber = new MyBigNumber(this);
         String sum = mybignumber.sum(s1,s2);

@@ -5,12 +5,11 @@ package myjava.mybignumber;
      * Description: 
      * Đây là class dùng để cộng 2 chuỗi số
      * Hàm sum là hàm dùng để thực hiện phép cộng 2 chuỗi số
-     * */
+     */
 
 public class MyBigNumber {
 
     private IReceiver ireceiver;
-
     public MyBigNumber(final IReceiver ireceiver){
         this.ireceiver = ireceiver;
     }
@@ -21,7 +20,7 @@ public class MyBigNumber {
      * 
      * @param str1 chuỗi số 1
      * @param str2 chuỗi số 2
-     * */
+     */
 
     public String sum(final String str1, final String str2) {
 	    //Khai báo biến
@@ -45,43 +44,44 @@ public class MyBigNumber {
 	    final String pattern = "\\d+"; //chuỗi số đại diện cho kí tự số [0-9]
 	    final boolean flag1; //biến để lưu trữ kết quả xét chuỗi str1
 	    final boolean flag2; //biến để lưu trữ kết quả xét chuỗi str2
-	
+	    
 	    //Kiểm tra số có phải là số âm hay không
-	    if(str1.charAt(0) == '-') {
-		    this.ireceiver.send("NumberFormatException(\"Vui lòng không chứa số âm trong str1 : " + str1);
-		    throw new NumberFormatException("Vui lòng không chứ số âm trong str1 : " + str1);
+	    if(str1.charAt(0) == '-' && str2.charAt(0) != '-') {
+		    this.ireceiver.send("NumberFormatException(\"Please do not include a negative number in the str1 sequence : " + str1);
+		    throw new NumberFormatException("Please do not include a negative number in the str1 sequence : " + str1);
 	    }
-	
-	    if(str2.charAt(0) == '-') {
-		    this.ireceiver.send("NumberFormatException(\"Vui lòng không chứa số âm trong str2 : " + str2);
-		    throw new NumberFormatException("Vui lòng không chứ số âm trong str2 : " + str2);
+	    if(str1.charAt(0) != '-' && str2.charAt(0) == '-') {
+		    this.ireceiver.send("NumberFormatException(\"Please do not include a negative number in the str2 sequence : " + str2);
+		    throw new NumberFormatException("Please do not include a negative number in the str2 sequence : " + str2);
 	    }
-	
+	    if(str1.charAt(0) == '-' && str2.charAt(0) == '-') {
+	    	this.ireceiver.send("NumberFormatException(\"Please do not include a negative number in the str1 sequence: " + str1 + " and the str2 sequence : " + str2);
+		    throw new NumberFormatException("Please do not include a negative number in the str1 sequence: " + str1 + " and the str2 sequence : " + str2);
+	    }
+	    
 	    //Kiểm tra kí tự có phải là kí tự đặc biệt hay chữ hay không
 	    flag1 = str1.matches(pattern);
 	    flag2 = str2.matches(pattern);
-	
-	    if(!flag1) {
-	    	this.ireceiver.send("NumberFormatException(\"Vui lòng không chứa kí tự đặc biệt hoặc chữ trong chuỗi str1 : " + str1);
-            throw new NumberFormatException("Vui lòng không chứa kí tự đặc biệt hoặc chữ trong chuỗi str1 : " + str1);
+	    if(!flag1 && flag2) {
+	    	this.ireceiver.send("NumberFormatException(\"Please do not include any special characters or characters in string : " + str1);
+            throw new NumberFormatException("Please do not include any special characters or characters in string str1 : " + str1);
 	    }
-	
-	    if(!flag2) {
-	    	this.ireceiver.send("NumberFormatException(\"Vui lòng không chứa kí tự đặc biệt hoặc chữ trong chuỗi str2 : " + str2);
-            throw new NumberFormatException("Vui lòng không chứa kí tự đặc biệt hoặc chữ trong chuỗi str2 : " + str2);
+	    if(!flag2 && flag1) {
+	    	this.ireceiver.send("NumberFormatException(\"Please do not include any special characters or characters in string : " + str2);
+            throw new NumberFormatException("Please do not include any special characters or characters in string str2 : " + str2);
 	    }
-	
+	    if(!flag2 && !flag1) {
+	    	this.ireceiver.send("NumberFormatException(\"Please do not include any special characters or characters in string : " + str2 + " and the string : " + str1);
+            throw new NumberFormatException("Please do not include any special characters or characters in string : " + str2 + " and the string : " + str1);
+	    }
 	    //Chạy vòng lập để cộng từng số trong 2 chuỗi số
 	    for(int i = 0; i < maxLen; i++) {
 		    index1 = len1 - i - 1; //lấy ra vị trí index1 phía bên phải của chuỗi str1
 		    index2 = len2 - i - 1; //lấy ra vị trí index2 phía bên phải của chuỗi str2
-		
 		    c1 = (index1 >= 0) ? str1.charAt(index1) : '0';
 		    c2 = (index2 >= 0) ? str2.charAt(index2) : '0';
-		
 		    temp1 = c1 - '0'; //Số tại vị trí index1
 		    temp2 = c2 - '0'; //Số tại vị trí index2
-		
 		    tempRemem = remem;
 		    total = temp1 + temp2 + remem; //Tổng tạm của 2 số tại vị trí index1 + số tại vị trí index2 + số nhớ
 		    totalNoMem = temp1 + temp2;
@@ -92,14 +92,14 @@ public class MyBigNumber {
 		
 		    if(i == 0) {
 			    msg = "Step " + (i+1) + " : " + temp1 + " + " + temp2 + " = " + totalNoMem
-					    + " , " + " Remember " + remem + " , " + " Result " + results + "\n";
+					    + " , " + " Write " + (total % 10) + " , " + " Remember " + remem + " , " + " Result " + results + "\n";
 		    }else {
 		    	if(tempRemem == 0) {
 		    		msg = "Step " + (i+1) + " : " + temp1 + " + " + temp2 + " = " + totalNoMem
-						    + " , " + " Remember " + remem + " , " + " Result " + results + "\n";
+		    				+ " , " + " Write " + (total % 10) + " , " + " Remember " + remem + " , " + " Result " + results + "\n";
 		    	}else {
 		    		msg = "Step " + (i+1) + " : " + temp1 + " + " + temp2 + " + " + tempRemem + " = "
-						    + total + " , " + " Remember " + remem + " , " + "Result " + results + "\n";
+						    + total + " , " + " Write " + (total % 10) + " , " + " Remember " + remem + " , " + "Result " + results + "\n";
 		    	}
 		    }
 		    step = step + msg;

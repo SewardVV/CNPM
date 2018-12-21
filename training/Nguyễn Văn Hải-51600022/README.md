@@ -7,7 +7,7 @@ BUILD OUTPUT DESCRIPTION
 Giới thiệu về phần mềm
 ----------------------
     - Phần mềm cộng 2 số, trong đó 2 số nhập vào dưới dạng là chuỗi số
-	- 2 file myBigNumber.java đã đạt không có lỗi trên trang http://myworkspace.vn/java
+	- 2 file myBigNumber.java (do trang myworkspace.vn/java bị lỗi nên không thể test code được)
 	- Phần mềm đã được đóng gói và dễ dàng sử dụng nó.
 	- Người dùng có thể chạy file MyBigNumberTest.java để xem các testcase về phần mềm.
 ========================
@@ -16,7 +16,7 @@ Giới thiệu về phần mềm
 Hướng dẫn sử dụng ứng dụng cộng hai số
 --------------------------------------
 
-1. Tải file sum.rar về máy theo đường dẫn: https://drive.google.com/open?id=1-VYuy4LnlXocdvBSw9VeRCtVchzmMMwg
+1. Tải file sum.rar về máy theo đường dẫn: https://drive.google.com/open?id=10B0Lv26dVCKozgAKGqFkDrx1YkvrN9fR
 2. Quy trình cài đặt phần mềm cho khách hàng
  - B1: copy file sum.rar vào bất kì ổ đĩa nào trên máy khách hàng mà khách hàng mong muốn ở đây mình mặc định là cài ở ổ đĩa D
  - B2: Giải nén phần mềm.
