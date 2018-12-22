@@ -65,43 +65,40 @@ public class MyBigNumber {
         
         //Check whether the number is negative
         if (str1.charAt(0) == '-' && str2.charAt(0) != '-') {
+        	positionError = 1;
             this.ireceiver.send("Sorry we don't support negative numbers yet : " + str1);
-            throw new NumberFormatException("at the position 1" 
+            throw new ExNumberFormatException(positionError 
                     + " of string " + str1 + " is not a number");
         }
-        if (str1.charAt(0) != '-' && str2.charAt(0) == '-') {
+        if (str2.charAt(0) == '-' && str1.charAt(0) != '-') {
+        	positionError = 1;
             this.ireceiver.send("Sorry we don't support negative numbers yet : " + str2);
-            throw new NumberFormatException("at the position 1" 
+            throw new ExNumberFormatException(positionError 
                     + " of string " + str2 + " is not a number");
         }
-        if (str1.charAt(0) == '-' && str2.charAt(0) == '-') {
-            this.ireceiver.send("Sorry we don't support negative numbers yet : " 
-                    + str1 + " and " + str2);
-            throw new NumberFormatException("at the position 1" 
+        if (str2.charAt(0) == '-' && str1.charAt(0) == '-') {
+        	positionError = 1;
+            this.ireceiver.send("Sorry we don't support negative numbers yet : " + str1 + " and " + str2);
+            throw new ExNumberFormatException(positionError 
                     + " of string " + str1 + " and " + str2 + " is not a number");
         }
 
         //Check whether characters are special characters or characters
-        if (flag1.find() && !flag2.find()) {
+        if (flag1.find()) {
             positionError = flag1.start() + 1;
-            this.ireceiver.send("Please do not include any special characters or characters in string : " + str1);
-            throw new NumberFormatException("at the position " + positionError 
+            this.ireceiver.send("Please do not include any special" 
+                    + " characters or characters in string : " + str1);
+            throw new ExNumberFormatException(positionError 
                     + " of string " + str1 + " is not a number");
         }
-        if (flag2.find() && !flag1.find()) {
+        if (flag2.find()) {
             positionError = flag2.start() + 1;
-            this.ireceiver.send("Please do not include any special characters or characters in string : " + str2);
-            throw new NumberFormatException("at the position " + positionError 
+            this.ireceiver.send("Please do not include any special" 
+                    + " characters or characters in string : " + str2);
+            throw new ExNumberFormatException(positionError 
                     + " of string " + str2 + " is not a number");
         }
-        if (flag1.find() && flag2.find()) {
-            positionError = flag2.start() + 1;
-            this.ireceiver.send("Please do not include any special characters or characters in string : " 
-                    + str1 + " and " + str2);
-            throw new NumberFormatException("at the position " + positionError 
-                    + " of string " + str2 + " is not a number");
-        }
-
+        
         //Run the loop to add each number in the two sequences
         for (int i = 0; i < maxLen; i++) {
             index1 = len1 - i - 1; //Get index1 position to the right of string str1
