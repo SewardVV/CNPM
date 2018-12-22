@@ -65,19 +65,19 @@ public class MyBigNumber {
         
         //Check whether the number is negative
         if (str1.charAt(0) == '-' && str2.charAt(0) != '-') {
-        	positionError = 1;
+            positionError = 1;
             this.ireceiver.send("Sorry we don't support negative numbers yet : " + str1);
             throw new ExNumberFormatException(positionError 
                     + " of string " + str1 + " is not a number");
         }
         if (str2.charAt(0) == '-' && str1.charAt(0) != '-') {
-        	positionError = 1;
+            positionError = 1;
             this.ireceiver.send("Sorry we don't support negative numbers yet : " + str2);
             throw new ExNumberFormatException(positionError 
                     + " of string " + str2 + " is not a number");
         }
         if (str2.charAt(0) == '-' && str1.charAt(0) == '-') {
-        	positionError = 1;
+            positionError = 1;
             this.ireceiver.send("Sorry we don't support negative numbers yet : " + str1 + " and " + str2);
             throw new ExNumberFormatException(positionError 
                     + " of string " + str1 + " and " + str2 + " is not a number");
