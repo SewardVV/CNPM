@@ -18,8 +18,7 @@ public class ExNumberFormatException extends NumberFormatException{
         errorPos = msg;
     }
     
-    @Override
-    public String toString() {
-        return errorPos;
+    public String getErrorPos() {
+    	return errorPos;
     }
 }

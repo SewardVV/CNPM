@@ -127,7 +127,7 @@ public class MyBigNumberTest implements IReceiver {
 		    MyBigNumber mybignumber = new MyBigNumber(myclass);
 		    String sum = mybignumber.sum("343d", "987");
 		}catch(ExNumberFormatException ex) {
-			System.out.println("Error location at: "+ ex);
+			assertEquals("Error location at: 4 of string 343d is not a number", ex.getErrorPos());
 		}
 	}
 	
@@ -139,7 +139,7 @@ public class MyBigNumberTest implements IReceiver {
 		    MyBigNumber mybignumber = new MyBigNumber(myclass);
 		    String sum = mybignumber.sum("34$$3", "987");
 		}catch(ExNumberFormatException ex) {
-			System.out.println("Error location at: "+ ex + "\n");
+			assertEquals("Error location at: 3 of string 34$$3 is not a number", ex.getErrorPos());
 		}
 	}
 	
@@ -151,7 +151,7 @@ public class MyBigNumberTest implements IReceiver {
 		    MyBigNumber mybignumber = new MyBigNumber(myclass);
 		    String sum = mybignumber.sum("343", "98*77");
 		}catch(ExNumberFormatException ex) {
-			System.out.println("Error location at: "+ ex + "\n");
+			assertEquals("Error location at: 3 of string 98*77 is not a number", ex.getErrorPos());
 		}
 	}
 	
@@ -163,7 +163,7 @@ public class MyBigNumberTest implements IReceiver {
 		    MyBigNumber mybignumber = new MyBigNumber(myclass);
 		    String sum = mybignumber.sum("-343", "987");
 		}catch(ExNumberFormatException ex) {
-			System.out.println("Error location at: "+ ex + "\n");
+			assertEquals("Error location at: 1 of string -343 is not a number", ex.getErrorPos());
 		}
 	}
 	
@@ -175,7 +175,7 @@ public class MyBigNumberTest implements IReceiver {
 		    MyBigNumber mybignumber = new MyBigNumber(myclass);
 		    String sum = mybignumber.sum("343", "-987");
 		}catch(ExNumberFormatException ex) {
-			System.out.println("Error location at: "+ ex + "\n");
+			assertEquals("Error location at: 1 of string -987 is not a number", ex.getErrorPos());
 		}
 	}
 	
@@ -187,7 +187,7 @@ public class MyBigNumberTest implements IReceiver {
 		    MyBigNumber mybignumber = new MyBigNumber(myclass);
 		    String sum = mybignumber.sum("34$$3", "98$$7");
 		}catch(ExNumberFormatException ex) {
-			System.out.println("Error location at: "+ ex + "\n");
+			assertEquals("Error location at: 3 of string 34$$3 is not a number", ex.getErrorPos());
 		}
 	}
 	
@@ -199,7 +199,7 @@ public class MyBigNumberTest implements IReceiver {
 		    MyBigNumber mybignumber = new MyBigNumber(myclass);
 		    String sum = mybignumber.sum("3dewsd43", "98se7");
 		}catch(ExNumberFormatException ex) {
-			System.out.println("Error location at: "+ ex + "\n");
+			assertEquals("Error location at: 2 of string 3dewsd43 is not a number", ex.getErrorPos());
 		}
 	}
 	
@@ -211,7 +211,7 @@ public class MyBigNumberTest implements IReceiver {
 		    MyBigNumber mybignumber = new MyBigNumber(myclass);
 		    String sum = mybignumber.sum("3dew$$sd43", "98se7");
 		}catch(ExNumberFormatException ex) {
-			System.out.println("Error location at: "+ ex + "\n");
+			assertEquals("Error location at: 2 of string 3dew$$sd43 is not a number", ex.getErrorPos());
 		}
 	}
 	
@@ -223,7 +223,7 @@ public class MyBigNumberTest implements IReceiver {
 		    MyBigNumber mybignumber = new MyBigNumber(myclass);
 		    String sum = mybignumber.sum("3dewsd43", "98s*&^^e7");
 		}catch(ExNumberFormatException ex) {
-			System.out.println("Error location at: "+ ex + "\n");
+			assertEquals("Error location at: 2 of string 3dewsd43 is not a number", ex.getErrorPos());
 		}
 	}
 	
@@ -235,7 +235,7 @@ public class MyBigNumberTest implements IReceiver {
 		    MyBigNumber mybignumber = new MyBigNumber(myclass);
 		    String sum = mybignumber.sum("-3dewsd43", "98s*&^^e7");
 		}catch(ExNumberFormatException ex) {
-			System.out.println("Error location at: "+ ex + "\n");
+			assertEquals("Error location at: 1 of string -3dewsd43 is not a number", ex.getErrorPos());
 		}
 	}
 	
@@ -247,7 +247,7 @@ public class MyBigNumberTest implements IReceiver {
 		    MyBigNumber mybignumber = new MyBigNumber(myclass);
 		    String sum = mybignumber.sum("3dewsd43", "-98s*&^^e7");
 		}catch(ExNumberFormatException ex) {
-			System.out.println("Error location at: "+ ex + "\n");
+			assertEquals("Error location at: 1 of string -98s*&^^e7 is not a number", ex.getErrorPos());
 		}
 	}
 	
@@ -259,7 +259,7 @@ public class MyBigNumberTest implements IReceiver {
 		    MyBigNumber mybignumber = new MyBigNumber(myclass);
 		    String sum = mybignumber.sum("adadasd", "dasda");
 		}catch(ExNumberFormatException ex) {
-			System.out.println("Error location at: "+ ex + "\n");
+			assertEquals("Error location at: 1 of string adadasd is not a number", ex.getErrorPos());
 		}
 	}
 	
@@ -271,7 +271,7 @@ public class MyBigNumberTest implements IReceiver {
 		    MyBigNumber mybignumber = new MyBigNumber(myclass);
 		    String sum = mybignumber.sum("&%&^%", "&*%^&^%");
 		}catch(ExNumberFormatException ex) {
-			System.out.println("Error location at: "+ ex + "\n");
+			assertEquals("Error location at: 1 of string &%&^% is not a number", ex.getErrorPos());
 		}
 	}
 	
@@ -283,7 +283,7 @@ public class MyBigNumberTest implements IReceiver {
 		    MyBigNumber mybignumber = new MyBigNumber(myclass);
 		    String sum = mybignumber.sum("-343", "-3434");
 		}catch(ExNumberFormatException ex) {
-			System.out.println("Error location at: "+ ex + "\n");
+			assertEquals("Error location at: 1 of string -343 and -3434 is not a number", ex.getErrorPos());
 		}
 	}
 	

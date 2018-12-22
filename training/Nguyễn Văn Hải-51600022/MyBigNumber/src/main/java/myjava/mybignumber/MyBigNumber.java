@@ -67,19 +67,19 @@ public class MyBigNumber {
         if (str1.charAt(0) == '-' && str2.charAt(0) != '-') {
             positionError = 1;
             this.ireceiver.send("Sorry we don't support negative numbers yet : " + str1);
-            throw new ExNumberFormatException(positionError 
+            throw new ExNumberFormatException("Error location at: " + positionError 
                     + " of string " + str1 + " is not a number");
         }
         if (str2.charAt(0) == '-' && str1.charAt(0) != '-') {
             positionError = 1;
             this.ireceiver.send("Sorry we don't support negative numbers yet : " + str2);
-            throw new ExNumberFormatException(positionError 
+            throw new ExNumberFormatException("Error location at: " + positionError 
                     + " of string " + str2 + " is not a number");
         }
         if (str2.charAt(0) == '-' && str1.charAt(0) == '-') {
             positionError = 1;
             this.ireceiver.send("Sorry we don't support negative numbers yet : " + str1 + " and " + str2);
-            throw new ExNumberFormatException(positionError 
+            throw new ExNumberFormatException("Error location at: " + positionError 
                     + " of string " + str1 + " and " + str2 + " is not a number");
         }
 
@@ -88,14 +88,14 @@ public class MyBigNumber {
             positionError = flag1.start() + 1;
             this.ireceiver.send("Please do not include any special" 
                     + " characters or characters in string : " + str1);
-            throw new ExNumberFormatException(positionError 
+            throw new ExNumberFormatException("Error location at: " + positionError 
                     + " of string " + str1 + " is not a number");
         }
         if (flag2.find()) {
             positionError = flag2.start() + 1;
             this.ireceiver.send("Please do not include any special" 
                     + " characters or characters in string : " + str2);
-            throw new ExNumberFormatException(positionError 
+            throw new ExNumberFormatException("Error location at: " + positionError 
                     + " of string " + str2 + " is not a number");
         }
         
