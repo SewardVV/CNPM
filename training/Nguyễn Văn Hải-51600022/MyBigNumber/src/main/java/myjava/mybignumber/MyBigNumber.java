@@ -22,14 +22,17 @@ public class MyBigNumber {
      * and two variable include character from '0' - '9'.
      * <br/>
      *
-     * @param str1 the first string.
-     * @param str2 the second string.
+     * @param s1 the first string.
+     * @param s2 the second string.
      * @return string which is sum of str1 and str2.
+     * @throw Print a warning line to users
      */
     
-    public String sum(final String str1, final String str2) {
+    public String sum(final String s1, final String s2) {
         
         //declare variable
+        String str1 = s1; //temp variable of string s1
+        String str2 = s2; //temp variable of string s1
         String results = ""; //The variable is used to save the final result of two sequences.
         String step = ""; //The variable is used as the parameter for the send function in the interface.
         String msg = ""; //The variable used to save the text of the plus steps.
@@ -51,30 +54,52 @@ public class MyBigNumber {
         final Matcher flag2 = pattern.matcher(str2); 
         int positionError;
         
-        //Check whether the number is negative
-        if (str1.charAt(0) == '-' && str2.charAt(0) != '-') {
-            this.ireceiver.send("NumberFormatException(\"Please do not include a negative number : " + str1);
-            throw new NumberFormatException("Please do not include a negative number in the str1 sequence : " + str1);
+        //check two number sequences is empty or not
+        // if it is null make it = '0'
+        if ((str1 == null) || (str1.trim().isEmpty())) {
+            str1 = "0";
         }
-        if (str1.charAt(0) != '-' && str2.charAt(0) == '-') {
-            this.ireceiver.send("NumberFormatException(\"Please do not include a negative number : " + str2);
-            throw new NumberFormatException("Please do not include a negative number in the str2 sequence : " + str2);
+        if ((str2 == null) || (str2.trim().isEmpty())) {
+            str2 = "0";
         }
         
-        //Check whether characters are special characters or characters
-        if (flag1.find()) {
-            positionError = flag1.start() + 1;
-            this.ireceiver.send("NumberFormatException(\"Please do not include any special" 
-                                + " characters or characters in string : " + str1 + " at position " + positionError);
-            throw new NumberFormatException("Please do not include any special" 
-                                + " characters or characters in string : " + str1 + " at position " + positionError);
+        //Check whether the number is negative
+        if (str1.charAt(0) == '-' && str2.charAt(0) != '-') {
+            this.ireceiver.send("Sorry we don't support negative numbers yet : " + str1);
+            throw new NumberFormatException("at the position 1" 
+                    + " of string " + str1 + " is not a number");
         }
-        if (flag2.find()) {
+        if (str1.charAt(0) != '-' && str2.charAt(0) == '-') {
+            this.ireceiver.send("Sorry we don't support negative numbers yet : " + str2);
+            throw new NumberFormatException("at the position 1" 
+                    + " of string " + str2 + " is not a number");
+        }
+        if (str1.charAt(0) == '-' && str2.charAt(0) == '-') {
+            this.ireceiver.send("Sorry we don't support negative numbers yet : " 
+                    + str1 + " and " + str2);
+            throw new NumberFormatException("at the position 1" 
+                    + " of string " + str1 + " and " + str2 + " is not a number");
+        }
+
+        //Check whether characters are special characters or characters
+        if (flag1.find() && !flag2.find()) {
+            positionError = flag1.start() + 1;
+            this.ireceiver.send("Please do not include any special characters or characters in string : " + str1);
+            throw new NumberFormatException("at the position " + positionError 
+                    + " of string " + str1 + " is not a number");
+        }
+        if (flag2.find() && !flag1.find()) {
             positionError = flag2.start() + 1;
-            this.ireceiver.send("NumberFormatException(\"Please do not include any special" 
-                                + " characters or characters in string : " + str2 + " at position " + positionError);
-            throw new NumberFormatException("Please do not include any special" 
-                                + " characters or characters in string : " + str2 + " at position " + positionError);
+            this.ireceiver.send("Please do not include any special characters or characters in string : " + str2);
+            throw new NumberFormatException("at the position " + positionError 
+                    + " of string " + str2 + " is not a number");
+        }
+        if (flag1.find() && flag2.find()) {
+            positionError = flag2.start() + 1;
+            this.ireceiver.send("Please do not include any special characters or characters in string : " 
+                    + str1 + " and " + str2);
+            throw new NumberFormatException("at the position " + positionError 
+                    + " of string " + str2 + " is not a number");
         }
 
         //Run the loop to add each number in the two sequences

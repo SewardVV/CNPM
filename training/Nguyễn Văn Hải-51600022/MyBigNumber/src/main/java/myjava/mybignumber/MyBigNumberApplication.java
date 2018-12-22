@@ -195,28 +195,31 @@ public class MyBigNumberApplication implements IReceiver{
         final Pattern pattern = Pattern.compile("\\D"); //Numerical sequences represent numeric characters [0-9]
 	    final Matcher flag1 = pattern.matcher(s1); 
 	    final Matcher flag2 = pattern.matcher(s2); 
-	    int positionError;
         
-        //Check whether the number is negative
-	    if(s1.charAt(0) == '-' && s2.charAt(0) != '-') {
-	    	JOptionPane.showMessageDialog(textArea,"Please do not include a negative number in the string : " + s1);
-	    }
-	    if(s1.charAt(0) != '-' && s2.charAt(0) == '-') {
-	    	JOptionPane.showMessageDialog(textArea,"Please do not include a negative number in the string : " + s2);
-	    }
-	    if(s1.charAt(0) == '-' && s2.charAt(0) == '-') {
-	    	JOptionPane.showMessageDialog(textArea,"Please do not include a negative number in the  string: " + s1 + " and the string : " + s2);
-	    }
+	    //check two number sequences is empty or not
+        // if it is null make it = '0'
+        if ((s1 == null) || (s1.trim().isEmpty())) {
+        	s1 = "0";
+        }
+        if ((s2 == null) || (s2.trim().isEmpty())) {
+        	s2 = "0";
+        }
 	    
-        //Check for special characters
-	  //Check whether characters are special characters or characters
-	    if(flag1.find()) {
-	    	positionError = flag1.start() + 1;
-	    	JOptionPane.showMessageDialog(textArea, "Please do not include any special characters or characters in string : " + s1 + " at position " + positionError);
+	    //Check whether characters are special characters or characters
+	    if (flag1.find() && !flag2.find()) {
+	    	JOptionPane.showMessageDialog(textArea, "Please do not include" 
+	    	        + " any special characters or characters in string : " + s1);
+	    	result.setText(null);
 	    }
-	    if(flag2.find()) {
-	    	positionError = flag2.start() + 1;
-	    	JOptionPane.showMessageDialog(textArea, "Please do not include any special characters or characters in string : " + s2 + " at position " + positionError);
+	    if (flag2.find() && !flag1.find()) {
+	    	JOptionPane.showMessageDialog(textArea, "Please do not include" 
+	    	        + " any special characters or characters in string : " + s2);
+	    	result.setText(null);
+	    }
+	    if (flag1.find() && flag2.find()) {
+	    	JOptionPane.showMessageDialog(textArea, "Please do not include any" 
+	    	        + " special characters or characters in string : " + s1 + " and " + s2);
+	    	result.setText(null);
 	    }
         
         MyBigNumber mybignumber = new MyBigNumber(this);
