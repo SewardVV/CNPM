@@ -488,8 +488,8 @@ public class MyBigNumberTest implements IReceiver {
 	@Override
 	public void send(String msg) {
 		// TODO Auto-generated method stub
-	    System.out.println("Case: " + (i+1) + " - " + listcase.get(i) + "\n" + msg);
 		System.out.println("\n\n");
+	    System.out.println("Case: " + (i+1) + " - " + listcase.get(i) + "\n" + msg);
 		i++;
 	}
 }
