@@ -1,0 +1,124 @@
+2018-12-24 17:51:10 INFO  MyBigNumber:155 - 
+We have 0 + 0 = 0
+ Process implementation: 
+Step 1 : 0 + 0 = 0 ,  Write 0 ,  Remember 0 ,  Result 0
+
+2018-12-24 17:51:10 INFO  MyBigNumber:155 - 
+We have 0 + 0 = 0
+ Process implementation: 
+Step 1 : 0 + 0 = 0 ,  Write 0 ,  Remember 0 ,  Result 0
+
+2018-12-24 17:51:10 ERROR MyBigNumber:100 - at: 4 of string 343d is not a number
+2018-12-24 17:51:10 ERROR MyBigNumber:100 - at: 3 of string 34$$3 is not a number
+2018-12-24 17:51:10 ERROR MyBigNumber:109 - at: 3 of string 98*77 is not a number
+2018-12-24 17:51:10 ERROR MyBigNumber:73 - at: 1 of string -343 is not a number
+2018-12-24 17:51:10 ERROR MyBigNumber:81 - at: 1 of string -987 is not a number
+2018-12-24 17:51:10 ERROR MyBigNumber:100 - at: 3 of string 34$$3 is not a number
+2018-12-24 17:51:10 ERROR MyBigNumber:100 - at: 2 of string 3dewsd43 is not a number
+2018-12-24 17:51:10 ERROR MyBigNumber:100 - at: 2 of string 3dew$$sd43 is not a number
+2018-12-24 17:51:10 ERROR MyBigNumber:100 - at: 2 of string 3dewsd43 is not a number
+2018-12-24 17:51:10 ERROR MyBigNumber:73 - at: 1 of string -3dewsd43 is not a number
+2018-12-24 17:51:10 ERROR MyBigNumber:81 - at: 1 of string -98s*&^^e7 is not a number
+2018-12-24 17:51:10 ERROR MyBigNumber:100 - at: 1 of string adadasd is not a number
+2018-12-24 17:51:10 ERROR MyBigNumber:100 - at: 1 of string &%&^% is not a number
+2018-12-24 17:51:10 ERROR MyBigNumber:89 - at: 1 of string -343 and -3434 is not a number
+2018-12-24 17:51:10 INFO  MyBigNumber:155 - 
+We have 123 + 987 = 1110
+ Process implementation: 
+Step 1 : 3 + 7 = 10 ,  Write 0 ,  Remember 1 ,  Result 0
+Step 2 : 2 + 8 + 1 = 11 ,  Write 1 ,  Remember 1 , Result 10
+Step 3 : 1 + 9 + 1 = 11 ,  Write 1 ,  Remember 1 , Result 110
+Take 1 forward 110 ,  Result: 1110
+
+2018-12-24 17:51:10 INFO  MyBigNumber:155 - 
+We have 144232424234 + 987242342432 = 1131474766666
+ Process implementation: 
+Step 1 : 4 + 2 = 6 ,  Write 6 ,  Remember 0 ,  Result 6
+Step 2 : 3 + 3 = 6 ,  Write 6 ,  Remember 0 ,  Result 66
+Step 3 : 2 + 4 = 6 ,  Write 6 ,  Remember 0 ,  Result 666
+Step 4 : 4 + 2 = 6 ,  Write 6 ,  Remember 0 ,  Result 6666
+Step 5 : 2 + 4 = 6 ,  Write 6 ,  Remember 0 ,  Result 66666
+Step 6 : 4 + 3 = 7 ,  Write 7 ,  Remember 0 ,  Result 766666
+Step 7 : 2 + 2 = 4 ,  Write 4 ,  Remember 0 ,  Result 4766666
+Step 8 : 3 + 4 = 7 ,  Write 7 ,  Remember 0 ,  Result 74766666
+Step 9 : 2 + 2 = 4 ,  Write 4 ,  Remember 0 ,  Result 474766666
+Step 10 : 4 + 7 = 11 ,  Write 1 ,  Remember 1 ,  Result 1474766666
+Step 11 : 4 + 8 + 1 = 13 ,  Write 3 ,  Remember 1 , Result 31474766666
+Step 12 : 1 + 9 + 1 = 11 ,  Write 1 ,  Remember 1 , Result 131474766666
+Take 1 forward 131474766666 ,  Result: 1131474766666
+
+2018-12-24 17:51:10 INFO  MyBigNumber:155 - 
+We have 12 + 987 = 999
+ Process implementation: 
+Step 1 : 2 + 7 = 9 ,  Write 9 ,  Remember 0 ,  Result 9
+Step 2 : 1 + 8 = 9 ,  Write 9 ,  Remember 0 ,  Result 99
+Step 3 : 0 + 9 = 9 ,  Write 9 ,  Remember 0 ,  Result 999
+
+2018-12-24 17:51:10 INFO  MyBigNumber:155 - 
+We have 122342 + 9834243242342424 = 9834243242464766
+ Process implementation: 
+Step 1 : 2 + 4 = 6 ,  Write 6 ,  Remember 0 ,  Result 6
+Step 2 : 4 + 2 = 6 ,  Write 6 ,  Remember 0 ,  Result 66
+Step 3 : 3 + 4 = 7 ,  Write 7 ,  Remember 0 ,  Result 766
+Step 4 : 2 + 2 = 4 ,  Write 4 ,  Remember 0 ,  Result 4766
+Step 5 : 2 + 4 = 6 ,  Write 6 ,  Remember 0 ,  Result 64766
+Step 6 : 1 + 3 = 4 ,  Write 4 ,  Remember 0 ,  Result 464766
+Step 7 : 0 + 2 = 2 ,  Write 2 ,  Remember 0 ,  Result 2464766
+Step 8 : 0 + 4 = 4 ,  Write 4 ,  Remember 0 ,  Result 42464766
+Step 9 : 0 + 2 = 2 ,  Write 2 ,  Remember 0 ,  Result 242464766
+Step 10 : 0 + 3 = 3 ,  Write 3 ,  Remember 0 ,  Result 3242464766
+Step 11 : 0 + 4 = 4 ,  Write 4 ,  Remember 0 ,  Result 43242464766
+Step 12 : 0 + 2 = 2 ,  Write 2 ,  Remember 0 ,  Result 243242464766
+Step 13 : 0 + 4 = 4 ,  Write 4 ,  Remember 0 ,  Result 4243242464766
+Step 14 : 0 + 3 = 3 ,  Write 3 ,  Remember 0 ,  Result 34243242464766
+Step 15 : 0 + 8 = 8 ,  Write 8 ,  Remember 0 ,  Result 834243242464766
+Step 16 : 0 + 9 = 9 ,  Write 9 ,  Remember 0 ,  Result 9834243242464766
+
+2018-12-24 17:51:10 INFO  MyBigNumber:155 - 
+We have 123 + 98 = 221
+ Process implementation: 
+Step 1 : 3 + 8 = 11 ,  Write 1 ,  Remember 1 ,  Result 1
+Step 2 : 2 + 9 + 1 = 12 ,  Write 2 ,  Remember 1 , Result 21
+Step 3 : 1 + 0 + 1 = 2 ,  Write 2 ,  Remember 0 , Result 221
+
+2018-12-24 17:51:10 INFO  MyBigNumber:155 - 
+We have 6645646456565 + 656565445 = 6646303022010
+ Process implementation: 
+Step 1 : 5 + 5 = 10 ,  Write 0 ,  Remember 1 ,  Result 0
+Step 2 : 6 + 4 + 1 = 11 ,  Write 1 ,  Remember 1 , Result 10
+Step 3 : 5 + 4 + 1 = 10 ,  Write 0 ,  Remember 1 , Result 010
+Step 4 : 6 + 5 + 1 = 12 ,  Write 2 ,  Remember 1 , Result 2010
+Step 5 : 5 + 6 + 1 = 12 ,  Write 2 ,  Remember 1 , Result 22010
+Step 6 : 4 + 5 + 1 = 10 ,  Write 0 ,  Remember 1 , Result 022010
+Step 7 : 6 + 6 + 1 = 13 ,  Write 3 ,  Remember 1 , Result 3022010
+Step 8 : 4 + 5 + 1 = 10 ,  Write 0 ,  Remember 1 , Result 03022010
+Step 9 : 6 + 6 + 1 = 13 ,  Write 3 ,  Remember 1 , Result 303022010
+Step 10 : 5 + 0 + 1 = 6 ,  Write 6 ,  Remember 0 , Result 6303022010
+Step 11 : 4 + 0 = 4 ,  Write 4 ,  Remember 0 ,  Result 46303022010
+Step 12 : 6 + 0 = 6 ,  Write 6 ,  Remember 0 ,  Result 646303022010
+Step 13 : 6 + 0 = 6 ,  Write 6 ,  Remember 0 ,  Result 6646303022010
+
+2018-12-24 17:51:10 INFO  MyBigNumber:155 - 
+We have 0 + 0 = 
+ Process implementation: 
+
+2018-12-24 17:51:10 INFO  MyBigNumber:155 - 
+We have 0 + 453453 = 453453
+ Process implementation: 
+Step 1 : 0 + 3 = 3 ,  Write 3 ,  Remember 0 ,  Result 3
+Step 2 : 0 + 5 = 5 ,  Write 5 ,  Remember 0 ,  Result 53
+Step 3 : 0 + 4 = 4 ,  Write 4 ,  Remember 0 ,  Result 453
+Step 4 : 0 + 3 = 3 ,  Write 3 ,  Remember 0 ,  Result 3453
+Step 5 : 0 + 5 = 5 ,  Write 5 ,  Remember 0 ,  Result 53453
+Step 6 : 0 + 4 = 4 ,  Write 4 ,  Remember 0 ,  Result 453453
+
+2018-12-24 17:51:10 INFO  MyBigNumber:155 - 
+We have 453453 + 0 = 453453
+ Process implementation: 
+Step 1 : 3 + 0 = 3 ,  Write 3 ,  Remember 0 ,  Result 3
+Step 2 : 5 + 0 = 5 ,  Write 5 ,  Remember 0 ,  Result 53
+Step 3 : 4 + 0 = 4 ,  Write 4 ,  Remember 0 ,  Result 453
+Step 4 : 3 + 0 = 3 ,  Write 3 ,  Remember 0 ,  Result 3453
+Step 5 : 5 + 0 = 5 ,  Write 5 ,  Remember 0 ,  Result 53453
+Step 6 : 4 + 0 = 4 ,  Write 4 ,  Remember 0 ,  Result 453453
+

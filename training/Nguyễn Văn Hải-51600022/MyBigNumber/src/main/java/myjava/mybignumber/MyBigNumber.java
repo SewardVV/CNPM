@@ -3,6 +3,8 @@ package myjava.mybignumber;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.log4j.Logger;
+
 /**
  * Author:  Nguyen Van Hai.
  * DesCription.
@@ -12,6 +14,7 @@ import java.util.regex.Pattern;
 
 public class MyBigNumber {
     private IReceiver ireceiver;
+    final Logger logger = Logger.getLogger(MyBigNumber.class);
     
     public MyBigNumber(final IReceiver ireceiver) {
         this.ireceiver = ireceiver;
@@ -67,18 +70,24 @@ public class MyBigNumber {
         if (str1.charAt(0) == '-' && str2.charAt(0) != '-') {
             positionError = 1;
             this.ireceiver.send("Sorry we don't support negative numbers yet : " + str1);
+            logger.error("at: " + positionError 
+                    + " of string " + str1 + " is not a number");
             throw new ExNumberFormatException("Error location at: " + positionError 
                     + " of string " + str1 + " is not a number");
         }
         if (str2.charAt(0) == '-' && str1.charAt(0) != '-') {
             positionError = 1;
             this.ireceiver.send("Sorry we don't support negative numbers yet : " + str2);
+            logger.error("at: " + positionError 
+                    + " of string " + str2 + " is not a number");
             throw new ExNumberFormatException("Error location at: " + positionError 
                     + " of string " + str2 + " is not a number");
         }
         if (str2.charAt(0) == '-' && str1.charAt(0) == '-') {
             positionError = 1;
             this.ireceiver.send("Sorry we don't support negative numbers yet : " + str1 + " and " + str2);
+            logger.error("at: " + positionError 
+                    + " of string " + str1 + " and " + str2 + " is not a number");
             throw new ExNumberFormatException("Error location at: " + positionError 
                     + " of string " + str1 + " and " + str2 + " is not a number");
         }
@@ -88,6 +97,8 @@ public class MyBigNumber {
             positionError = flag1.start() + 1;
             this.ireceiver.send("Please do not include any special" 
                     + " characters or characters in string : " + str1);
+            logger.error("at: " + positionError 
+                    + " of string " + str1 + " is not a number");
             throw new ExNumberFormatException("Error location at: " + positionError 
                     + " of string " + str1 + " is not a number");
         }
@@ -95,6 +106,8 @@ public class MyBigNumber {
             positionError = flag2.start() + 1;
             this.ireceiver.send("Please do not include any special" 
                     + " characters or characters in string : " + str2);
+            logger.error("at: " + positionError 
+                    + " of string " + str2 + " is not a number");
             throw new ExNumberFormatException("Error location at: " + positionError 
                     + " of string " + str2 + " is not a number");
         }
@@ -139,6 +152,7 @@ public class MyBigNumber {
         }
         step = "\n" + "We have " + str1 + " + " + str2 + " = " + results + "\n" + " Process implementation: \n" + step;
         this.ireceiver.send(step);
+        logger.info(step);
 
         return results;
     }
